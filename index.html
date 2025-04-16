@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频网站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF4785',
+                        secondary: '#8E8E93',
+                        dark: '#1C1C1E',
+                        card: '#2C2C2E'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body class="min-h-screen pb-16 pt-16">
+    <!-- 顶部导航栏 -->
+    <nav class="nav-bar h-16 flex items-center px-4 border-b border-gray-800">
+        <div class="flex items-center justify-between w-full">
+            <div class="font-['Pacifico'] text-xl text-primary">logo</div>
+            
+            <div class="flex-1 mx-4 relative">
+                <input type="text" placeholder="搜索视频..." class="search-input w-full bg-gray-800 text-white px-4 py-2 rounded-full text-sm focus:ring-2 focus:ring-primary">
+                <i class="fas fa-search absolute right-3 top-2.5 text-gray-400 text-sm"></i>
+            </div>
+            
+            <button class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center" onclick="goToinfos()">
+                <i class="fas fa-user text-white text-sm"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 主要内容区域 -->
+    <main class="px-4">
+        <!-- 广告位 -->
+        <div class="mt-4 mb-6 grid grid-cols-2 gap-3">
+            <div class="relative rounded-xl overflow-hidden h-24">
+                <img src="https://ai-public.mastergo.com/ai/img_res/0a556d33057b13dc09e0a53f411e0535.jpg" 
+                     alt="广告1" class="w-full h-full object-cover object-top">
+                <div class="absolute bottom-2 right-2 bg-primary text-white text-xs px-2 py-1 rounded">小说</div>
+            </div>
+            <div class="relative rounded-xl overflow-hidden h-24">
+                <img src="https://ai-public.mastergo.com/ai/img_res/c7c0163d74036529607d85dd18377799.jpg" 
+                     alt="广告2" class="w-full h-full object-cover object-top">
+                <div class="absolute bottom-2 right-2 bg-primary text-white text-xs px-2 py-1 rounded">漫画</div>
+            </div>
+        </div>
+
+        <!-- 分类导航 -->
+        <div class="relative mb-6">
+            <div class="category-scroll flex space-x-2 overflow-x-auto pb-2 pr-12" id="button-container">
+                <!-- 默认选中"全部"按钮 -->
+            </div>
+        </div>
+
+        <!-- 视频列表 -->
+        <div class="grid grid-cols-2 gap-3 mb-6 video-list-container">
+            <!-- 视频卡片将通过JavaScript动态渲染 -->
+        </div>
+        <!-- 加载更多按钮 -->
+        <div id="load-more" class="flex justify-center mt-4">
+            <button onclick="loadMoreVideos()" class="bg-primary text-white px-4 py-2 rounded-full text-sm">加载更多</button>
+        </div>
+    </main>
+
+    <!-- 底部标签栏 -->
+    <div class="tab-bar h-16 flex items-center justify-around">
+        <button class="flex flex-col items-center justify-center text-primary">
+            <i class="fas fa-home text-lg"></i>
+            <span class="text-xs mt-1">首页</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-secondary">
+            <i class="fas fa-compass text-lg"></i>
+            <span class="text-xs mt-1">游戏</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-secondary" onclick="goTomine()">
+            <i class="fas fa-user text-lg"></i>
+            <span class="text-xs mt-1">我的</span>
+        </button>
+    </div>
+
+    <!-- 在 body 中的主要内容区域，添加遮罩 div -->
+    <div id="filter-mask" class="fixed top-0 right-[-70%] w-[70%] h-full bg-gray-800 bg-opacity-90 transition-all duration-150 ease-in-out overflow-y-auto p-4 z-50">
+        <h3 class="text-white text-lg mb-4">筛选和分类</h3>
+        <div class="mb-6">
+            <h4 class="text-white text-md mb-2">分类列表：</h4>
+            <ul class="grid grid-cols-3 gap-2">
+                <!-- 动态生成分类列表，这里会由 updateFilterMask 函数处理 -->
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-white text-md mb-2">视频排序：</h4>
+            <div class="space-y-2">
+                <button class="w-full p-2 bg-gray-700 text-white rounded hover:bg-primary sort-button">按最新发布</button>
+                <button class="w-full p-2 bg-gray-700 text-white rounded hover:bg-primary sort-button">按观看最多</button>
+                <button class="w-full p-2 bg-gray-700 text-white rounded hover:bg-primary sort-button">按点赞最多</button>
+                <button class="w-full p-2 bg-gray-700 text-white rounded hover:bg-primary sort-button">按评论最多</button>
+            </div>
+        </div>
+        <button onclick="closeFilterMask()" class="mt-4 w-full p-2 bg-gray-600 text-white rounded">应用</button>
+    </div>
+</body>
+</html>

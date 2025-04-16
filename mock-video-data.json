@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "热门电影预告片",
+    "thumbnail": "https://example.com/thumbnails/movie1.jpg",
+    "tag": "电影",
+    "type": "免费",
+    "duration": "2:30",
+    "views": 15000,
+    "uploadTime": "3天前"
+  },
+  {
+    "id": 2,
+    "title": "最新电视剧集锦",
+    "thumbnail": "https://example.com/thumbnails/tvshow1.jpg",
+    "tag": "电视剧",
+    "type": "VIP",
+    "duration": "45:00",
+    "views": 8000,
+    "uploadTime": "1周前"
+  },
+  {
+    "id": 3,
+    "title": "搞笑综艺片段",
+    "thumbnail": "https://example.com/thumbnails/variety1.jpg",
+    "tag": "综艺",
+    "type": "免费",
+    "duration": "10:15",
+    "views": 25000,
+    "uploadTime": "2天前"
+  },
+  {
+    "id": 4,
+    "title": "动漫新番推荐",
+    "thumbnail": "https://example.com/thumbnails/anime1.jpg",
+    "tag": "动漫",
+    "type": "VIP",
+    "duration": "24:00",
+    "views": 12000,
+    "uploadTime": "5天前"
+  },
+  {
+    "id": 5,
+    "title": "纪录片：自然奇观",
+    "thumbnail": "https://example.com/thumbnails/documentary1.jpg",
+    "tag": "纪录片",
+    "type": "免费",
+    "duration": "50:00",
+    "views": 5000,
+    "uploadTime": "1个月前"
+  },
+  {
+    "id": 6,
+    "title": "音乐MV精选",
+    "thumbnail": "https://example.com/thumbnails/music1.jpg",
+    "tag": "音乐",
+    "type": "免费",
+    "duration": "3:45",
+    "views": 30000,
+    "uploadTime": "1天前"
+  },
+  {
+    "id": 7,
+    "title": "游戏攻略视频",
+    "thumbnail": "https://example.com/thumbnails/game1.jpg",
+    "tag": "游戏",
+    "type": "VIP",
+    "duration": "15:20",
+    "views": 18000,
+    "uploadTime": "4天前"
+  },
+  {
+    "id": 8,
+    "title": "生活小技巧",
+    "thumbnail": "https://example.com/thumbnails/life1.jpg",
+    "tag": "生活",
+    "type": "免费",
+    "duration": "5:10",
+    "views": 10000,
+    "uploadTime": "2周前"
+  },
+  {
+    "id": 9,
+    "title": "科技产品评测",
+    "thumbnail": "https://example.com/thumbnails/tech1.jpg",
+    "tag": "科技",
+    "type": "VIP",
+    "duration": "8:30",
+    "views": 7000,
+    "uploadTime": "3周前"
+  },
+  {
+    "id": 10,
+    "title": "体育赛事集锦",
+    "thumbnail": "https://example.com/thumbnails/sports1.jpg",
+    "tag": "体育",
+    "type": "免费",
+    "duration": "6:00",
+    "views": 20000,
+    "uploadTime": "6天前"
+  }
+] 

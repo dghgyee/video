@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频详情 - 夜色浪漫：城市爱情故事</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF4785',
+                        secondary: '#8E8E93',
+                        dark: '#1C1C1E',
+                        card: '#2C2C2E'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body class="bg-[#1C1C1E] text-white font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="nav-bar h-16 fixed top-0 left-0 right-0 bg-primary flex items-center px-4 z-10">
+        <button class="text-white icon-container" onclick="goToIndex()">
+            <i class="fas fa-chevron-left text-lg"></i>
+        </button>
+        <h1 class="text-white font-medium text-lg mx-auto text-ellipsis px-4">夜色浪漫：城市爱情故事</h1>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="pt-[56px] pb-[60px]">
+        <!-- 视频播放区 -->
+        <div class="video-player bg-black relative">
+            <img src="https://ai-public.mastergo.com/ai/img_res/9e5f60a95e97afdc13db4797a86b7f0a.jpg" 
+                 alt="视频封面" class="w-full h-full object-cover">
+            <button class="absolute inset-0 m-auto play-button bg-white bg-opacity-20 rounded-full icon-container">
+                <i class="fas fa-play text-white text-xl"></i>
+            </button>
+        </div>
+
+        <!-- 视频信息交互区 -->
+        <div class="px-4 py-3">
+            <!-- 标签切换 -->
+            <div class="flex border-b border-gray-200 mb-4">
+                <button class="px-3 py-2 font-medium text-primary tab-active" onclick="openTab('description', event)">简介</button>
+                <button class="px-3 py-2 font-medium text-gray-500" onclick="openTab('comments', event)">评论</button>
+            </div>
+
+            <!-- 简介内容 -->
+            <div id="description" class="tab-content">
+                <h2 class="text-lg font-bold mb-2">如何快速掌握前端开发技巧 - 实战教程</h2>
+                <div class="flex items-center text-sm text-gray-500 mb-4 space-x-4">
+                    <span><i class="fas fa-play mr-1"></i> 12.5万次播放</span>
+                    <span><i class="fas fa-thumbs-up mr-1"></i> 8.2万</span>
+                    <span>2025-5-15</span>
+                </div>
+
+                <p class="text-sm text-gray-300 mb-6">本教程将带你从零开始学习前端开发，涵盖HTML、CSS、JavaScript等核心技术，通过实际项目案例讲解，帮助你快速掌握前端开发技巧并应用于实际工作中。</p>
+                <!-- 推荐视频 -->
+                <h3 class="font-medium mb-3">相关推荐</h3>
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                    <!-- 视频卡片1 - 使用 index.html 的第一个视频卡片结构 -->
+                    <div class="video-card rounded-lg overflow-hidden bg-card">
+                        <div class="relative pt-[56.25%]">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/2b658cccedd2feb93bc75181da5216e6.jpg" 
+                                 alt="视频封面" class="absolute top-0 left-0 w-full h-full object-cover object-top">
+                            <div class="video-tag absolute top-2 right-2 text-white text-xs px-2 py-0.5 rounded">免费</div>
+                            <div class="absolute bottom-2 left-2 flex items-center text-white text-xs">
+                                <i class="fas fa-eye mr-1 text-xs"></i>
+                                <span>12.5万</span>
+                            </div>
+                            <div class="video-duration absolute bottom-2 right-2 text-white text-xs px-1.5 py-0.5 rounded">1:45:22</div>
+                        </div>
+                        <div class="p-2">
+                            <h3 class="text-sm font-medium text-white truncate">夜色浪漫：城市爱情故事</h3>
+                        </div>
+                    </div>
+
+                    <!-- 视频卡片2 - 使用 index.html 的第二个视频卡片结构 -->
+                    <div class="video-card rounded-lg overflow-hidden bg-card">
+                        <div class="relative pt-[56.25%]">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/589051a20c069ddaef1e1779c4457f16.jpg" 
+                                 alt="视频封面" class="absolute top-0 left-0 w-full h-full object-cover object-top">
+                            <div class="video-tag absolute top-2 right-2 text-white text-xs px-2 py-0.5 rounded">VIP</div>
+                            <div class="absolute bottom-2 left-2 flex items-center text-white text-xs">
+                                <i class="fas fa-eye mr-1 text-xs"></i>
+                                <span>8.7万</span>
+                            </div>
+                            <div class="video-duration absolute bottom-2 right-2 text-white text-xs px-1.5 py-0.5 rounded">45:12</div>
+                        </div>
+                        <div class="p-2">
+                            <h3 class="text-sm font-medium text-white truncate">迷雾之城 第三季</h3>
+                        </div>
+                    </div>
+
+                    <!-- 视频卡片3 - 使用 index.html 的第三个视频卡片结构 -->
+                    <div class="video-card rounded-lg overflow-hidden bg-card">
+                        <div class="relative pt-[56.25%]">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/44f44f1818110f231a2b8a3cf04d3909.jpg" 
+                                 alt="视频封面" class="absolute top-0 left-0 w-full h-full object-cover object-top">
+                            <div class="video-tag absolute top-2 right-2 text-white text-xs px-2 py-0.5 rounded">免费</div>
+                            <div class="absolute bottom-2 left-2 flex items-center text-white text-xs">
+                                <i class="fas fa-eye mr-1 text-xs"></i>
+                                <span>15.3万</span>
+                            </div>
+                            <div class="video-duration absolute bottom-2 right-2 text-white text-xs px-1.5 py-0.5 rounded">3:52</div>
+                        </div>
+                        <div class="p-2">
+                            <h3 class="text-sm font-medium text-white truncate">星辰乐队 2025演唱会</h3>
+                        </div>
+                    </div>
+                    <!-- 视频卡片4 - 使用 index.html 的第一个视频卡片结构 -->
+                    <div class="video-card rounded-lg overflow-hidden bg-card">
+                        <div class="relative pt-[56.25%]">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/2b658cccedd2feb93bc75181da5216e6.jpg" 
+                                 alt="视频封面" class="absolute top-0 left-0 w-full h-full object-cover object-top">
+                            <div class="video-tag absolute top-2 right-2 text-white text-xs px-2 py-0.5 rounded">免费</div>
+                            <div class="absolute bottom-2 left-2 flex items-center text-white text-xs">
+                                <i class="fas fa-eye mr-1 text-xs"></i>
+                                <span>12.5万</span>
+                            </div>
+                            <div class="video-duration absolute bottom-2 right-2 text-white text-xs px-1.5 py-0.5 rounded">1:45:22</div>
+                        </div>
+                        <div class="p-2">
+                            <h3 class="text-sm font-medium text-white truncate">夜色浪漫：城市爱情故事</h3>
+                        </div>
+                    </div>
+
+                    <!-- 视频卡片5 - 使用 index.html 的第二个视频卡片结构 -->
+                    <div class="video-card rounded-lg overflow-hidden bg-card">
+                        <div class="relative pt-[56.25%]">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/589051a20c069ddaef1e1779c4457f16.jpg" 
+                                 alt="视频封面" class="absolute top-0 left-0 w-full h-full object-cover object-top">
+                            <div class="video-tag absolute top-2 right-2 text-white text-xs px-2 py-0.5 rounded">VIP</div>
+                            <div class="absolute bottom-2 left-2 flex items-center text-white text-xs">
+                                <i class="fas fa-eye mr-1 text-xs"></i>
+                                <span>8.7万</span>
+                            </div>
+                            <div class="video-duration absolute bottom-2 right-2 text-white text-xs px-1.5 py-0.5 rounded">45:12</div>
+                        </div>
+                        <div class="p-2">
+                            <h3 class="text-sm font-medium text-white truncate">迷雾之城 第三季</h3>
+                        </div>
+                    </div>
+
+                    <!-- 视频卡片6 - 使用 index.html 的第三个视频卡片结构 -->
+                    <div class="video-card rounded-lg overflow-hidden bg-card">
+                        <div class="relative pt-[56.25%]">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/44f44f1818110f231a2b8a3cf04d3909.jpg" 
+                                 alt="视频封面" class="absolute top-0 left-0 w-full h-full object-cover object-top">
+                            <div class="video-tag absolute top-2 right-2 text-white text-xs px-2 py-0.5 rounded">免费</div>
+                            <div class="absolute bottom-2 left-2 flex items-center text-white text-xs">
+                                <i class="fas fa-eye mr-1 text-xs"></i>
+                                <span>15.3万</span>
+                            </div>
+                            <div class="video-duration absolute bottom-2 right-2 text-white text-xs px-1.5 py-0.5 rounded">3:52</div>
+                        </div>
+                        <div class="p-2">
+                            <h3 class="text-sm font-medium text-white truncate">星辰乐队 2025演唱会</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 评论内容 -->
+            <div id="comments" class="tab-content hidden">
+                <h3 class="font-medium mb-3">评论 1.2万</h3>
+                <div class="space-y-4">
+                    <!-- 评论项 -->
+                    <div class="flex">
+                        <div class="comment-avatar rounded-full overflow-hidden mr-3 flex-shrink-0">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/f5a4d9d6741cb37250198e5ddb07f288.jpg" 
+                                 alt="用户头像" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center mb-1">
+                                <span class="font-medium text-sm mr-2">技术爱好者</span>
+                                <span class="text-xs text-gray-500">2025-5-16</span>
+                            </div>
+                            <p class="text-sm">这个教程讲得非常清晰，特别是实战部分对我帮助很大，期待作者更新更多内容！</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="comment-avatar rounded-full overflow-hidden mr-3 flex-shrink-0">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/77d6fa28a8a18a8644db2aa011fa446f.jpg" 
+                                 alt="用户头像" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center mb-1">
+                                <span class="font-medium text-sm mr-2">前端小白</span>
+                                <span class="text-xs text-gray-500">2025-5-17</span>
+                            </div>
+                            <p class="text-sm">作为初学者，这个视频让我对前端有了系统的认识，讲解方式很友好，点赞！</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="comment-avatar rounded-full overflow-hidden mr-3 flex-shrink-0">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/cf8d597588d66b2e51c1e1116858cca7.jpg" 
+                                 alt="用户头像" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center mb-1">
+                                <span class="font-medium text-sm mr-2">资深开发者</span>
+                                <span class="text-xs text-gray-500">2025-5-18</span>
+                            </div>
+                            <p class="text-sm">内容很实用，特别是性能优化部分，即使是经验丰富的开发者也能从中获益。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部交互区 -->
+    <div class="tab-bar h-16 fixed bottom-0 left-0 right-0 bg-gray  px-4 flex items-center">
+        <div class="flex-1 flex items-center bg-gray-500 rounded-full px-4 py-2 mr-3">
+            <input type="text" placeholder="写下你的评论..." class="flex-1 bg-transparent text-sm outline-none">
+        </div>
+        <button id="like-button" class="text-gray-400 icon-container mr-3" onclick="toggleLike()">
+            <i id="like-icon" class="fas fa-thumbs-up text-xl"></i>
+        </button>
+        <button class="bg-primary text-white text-sm font-medium px-3 py-1 rounded-button">
+            发布
+        </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/video.js@7.8.4/dist/video.min.js"></script>
+</body>
+</html>

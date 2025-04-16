@@ -1,0 +1,369 @@
+{
+  "apiConfig": {
+    "baseUrl": "/api/ds",
+    "environment": {
+      "development": {
+        "host": "http://dev-api.example.com",
+        "daili": 123456,
+        "secretKey": "dev-secret-key"
+      },
+      "production": {
+        "host": "https://api.example.com",
+        "daili": 789012,
+        "secretKey": "prod-secret-key"
+      }
+    },
+    "security": {
+      "signAlgorithm": "MD5",
+      "signParameters": {
+        "sortByAlphabet": true,
+        "joinWith": "&",
+        "appendSecret": true
+      },
+      "encryption": {
+        "enabled": true,
+        "annotation": "@SecurityParameter"
+      }
+    },
+    "commonParameters": {
+      "daili": {
+        "type": "Long",
+        "required": true,
+        "description": "代理商ID"
+      },
+      "sign": {
+        "type": "String",
+        "required": true,
+        "description": "接口签名"
+      },
+      "tk": {
+        "type": "String",
+        "required": false,
+        "description": "令牌"
+      }
+    },
+    "responseFormat": {
+      "code": {
+        "success": 0,
+        "failure": "non-zero"
+      },
+      "msg": {
+        "success": "success",
+        "failure": "error message"
+      },
+      "data": {
+        "type": "Object",
+        "description": "响应数据"
+      }
+    },
+    "errorCodes": {
+      "0": "成功",
+      "500": "系统错误",
+      "401": "未授权",
+      "403": "禁止访问"
+    }
+  },
+  "apiEndpoints": {
+    "video": {
+      "list": {
+        "path": "/videolist",
+        "method": "GET",
+        "parameters": {
+          "daili": {
+            "type": "Long",
+            "required": true
+          },
+          "tag": {
+            "type": "String",
+            "required": false
+          },
+          "minId": {
+            "type": "Long",
+            "required": false
+          },
+          "ps": {
+            "type": "Integer",
+            "required": false,
+            "default": 10
+          },
+          "tk": {
+            "type": "String",
+            "required": false
+          }
+        },
+        "usage": {
+          "page": "index.html",
+          "element": ".video-list-container",
+          "description": "用于首页视频列表展示"
+        }
+      },
+      "detail": {
+        "path": "/video",
+        "method": "GET",
+        "parameters": {
+          "daili": {
+            "type": "Long",
+            "required": true
+          },
+          "zykey": {
+            "type": "String",
+            "required": true
+          }
+        },
+        "usage": {
+          "page": "video-play-free.html, video-play-vip.html",
+          "element": ".video-player",
+          "description": "用于视频播放页面显示视频详情"
+        }
+      }
+    },
+    "cartoon": {
+      "list": {
+        "path": "/cartoonlist",
+        "method": "GET",
+        "parameters": {
+          "daili": {
+            "type": "Long",
+            "required": true
+          },
+          "ps": {
+            "type": "Integer",
+            "required": false,
+            "default": 10
+          }
+        },
+        "usage": {
+          "page": "cartoon-list.html",
+          "element": ".cartoon-list-container",
+          "description": "用于漫画列表页面展示"
+        }
+      },
+      "detail": {
+        "path": "/cartoon",
+        "method": "GET",
+        "parameters": {
+          "daili": {
+            "type": "Long",
+            "required": true
+          },
+          "bookid": {
+            "type": "Long",
+            "required": true
+          }
+        },
+        "usage": {
+          "page": "cartoon-detail.html",
+          "element": ".cartoon-detail",
+          "description": "用于漫画详情页面显示"
+        }
+      },
+      "chapter": {
+        "path": "/cartoonchapter",
+        "method": "GET",
+        "parameters": {
+          "daili": {
+            "type": "Long",
+            "required": true
+          },
+          "chapterid": {
+            "type": "Long",
+            "required": true
+          }
+        },
+        "usage": {
+          "page": "cartoon-detail.html",
+          "element": ".cartoon-chapter",
+          "description": "用于漫画章节内容加载"
+        }
+      }
+    },
+    "order": {
+      "create": {
+        "path": "/createorder",
+        "method": "POST",
+        "parameters": {
+          "daili": {
+            "type": "Long",
+            "required": true
+          },
+          "zykey": {
+            "type": "String",
+            "required": true
+          },
+          "vip": {
+            "type": "String",
+            "required": false
+          }
+        },
+        "usage": {
+          "page": "video-play-vip.html",
+          "element": ".play-button",
+          "description": "用于VIP视频播放时创建订单"
+        }
+      },
+      "checkStatus": {
+        "path": "/checkOrderStatus",
+        "method": "GET",
+        "parameters": {
+          "orderno": {
+            "type": "String",
+            "required": true
+          }
+        },
+        "usage": {
+          "page": "video-play-vip.html",
+          "element": ".order-status",
+          "description": "用于检查订单支付状态"
+        }
+      }
+    },
+    "payment": {
+      "wechat": {
+        "path": "/createWechatPay",
+        "method": "POST",
+        "parameters": {
+          "orderno": {
+            "type": "String",
+            "required": true
+          },
+          "openid": {
+            "type": "String",
+            "required": false
+          }
+        },
+        "usage": {
+          "page": "payment.html",
+          "element": ".wechat-pay-button",
+          "description": "用于微信支付订单"
+        }
+      },
+      "yunqianba": {
+        "path": "/createYunqianba",
+        "method": "POST",
+        "parameters": {
+          "orderno": {
+            "type": "String",
+            "required": true
+          },
+          "openid": {
+            "type": "String",
+            "required": true
+          }
+        },
+        "usage": {
+          "page": "payment.html",
+          "element": ".yunqianba-pay-button",
+          "description": "用于云钱包支付订单"
+        }
+      }
+    },
+    "user": {
+      "oauth": {
+        "path": "/oauth",
+        "method": "GET",
+        "parameters": {
+          "code": {
+            "type": "String",
+            "required": true
+          },
+          "callback": {
+            "type": "String",
+            "required": true
+          }
+        },
+        "usage": {
+          "page": "login.html",
+          "element": ".weixin-login-button",
+          "description": "用于微信授权登录"
+        }
+      },
+      "wxMsg": {
+        "path": "/wxMsg",
+        "method": "POST",
+        "parameters": {},
+        "usage": {
+          "page": "login.html",
+          "element": ".weixin-msg-handler",
+          "description": "处理微信消息和事件"
+        }
+      },
+      "logUserTel": {
+        "path": "/logUserTel",
+        "method": "POST",
+        "parameters": {
+          "tel": {
+            "type": "String",
+            "required": true
+          }
+        },
+        "usage": {
+          "page": "mine.html",
+          "element": ".user-tel-input",
+          "description": "记录用户电话号码"
+        }
+      }
+    },
+    "agent": {
+      "getDomain": {
+        "path": "/getDomain",
+        "method": "GET",
+        "parameters": {
+          "daili": {
+            "type": "Long",
+            "required": true
+          },
+          "callback": {
+            "type": "String",
+            "required": true
+          }
+        },
+        "usage": {
+          "page": "agent.html",
+          "element": ".agent-domain",
+          "description": "获取代理商域名"
+        }
+      },
+      "getDingdanMoneySum": {
+        "path": "/getDingdanMoneySum",
+        "method": "GET",
+        "parameters": {},
+        "usage": {
+          "page": "agent.html",
+          "element": ".agent-stats",
+          "description": "获取代理商订单金额统计"
+        }
+      }
+    },
+    "other": {
+      "jubao": {
+        "path": "/jubao",
+        "method": "POST",
+        "parameters": {
+          "content": {
+            "type": "String",
+            "required": true
+          },
+          "type": {
+            "type": "String",
+            "required": true
+          }
+        },
+        "usage": {
+          "page": "video-play-free.html, video-play-vip.html",
+          "element": ".report-button",
+          "description": "用于举报功能"
+        }
+      },
+      "getDynamic": {
+        "path": "/getDynamic",
+        "method": "GET",
+        "parameters": {},
+        "usage": {
+          "page": "index.html",
+          "element": ".dynamic-config",
+          "description": "获取系统动态配置信息"
+        }
+      }
+    }
+  }
+} 
